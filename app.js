@@ -12,7 +12,7 @@ const firebaseConfig = {
   projectId: "quizapp-d49e8",
   storageBucket: "quizapp-d49e8.appspot.com",
   messagingSenderId: "286605744142",
-  appId: "1:286605744142:web:f35fbb3584b3f9ddc4845f"
+  appId: "1:286605744142:web:f35fbb3584b3f9ddc4845f",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -20,7 +20,6 @@ const db = getDatabase();
 
 var questions = [];
 
-// Getting Data From Database
 async function getDataFromDatabase() {
   return new Promise((resolve, reject) => {
     var reference = ref(db, "questions/");
@@ -31,15 +30,12 @@ async function getDataFromDatabase() {
     });
   });
 }
-// }
 
-// Wait for data to fetch from the database, then render
 async function startQuiz() {
   await getDataFromDatabase();
   renderQuestion();
 }
 
-// All HTML Elements Importing
 var currQ = document.getElementById("currQuestion");
 var totalQ = document.getElementById("totalQuestion");
 var question = document.getElementById("question");
@@ -48,13 +44,11 @@ var renderAns = document.getElementById("answer-parent");
 var indexNum = 0;
 var score = 0;
 
-// This function works when the Next button is clicked
 window.nextQuestion = function () {
   indexNum++;
   renderQuestion();
 };
 
-// This function counts the user's score
 window.currAnswer = function (a, b) {
   if (a == b) {
     score++;
@@ -63,7 +57,6 @@ window.currAnswer = function (a, b) {
   nextQuestion();
 };
 
-// This function renders the user's questions after fetching
 function renderQuestion() {
   currQ.innerHTML = indexNum + 1;
   totalQ.innerHTML = questions.length;
