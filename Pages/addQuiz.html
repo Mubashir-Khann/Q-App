@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Quiz</title>
+    <link rel="stylesheet" href="./addQuiz.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <h1>Quiz Application</h1>
+        <button
+          onclick="window.location.assign('../index.html')"
+          class="addQuizBtn">
+          Back to Main page
+        </button>
+      </div>
+      <div class="addQuiz-parent">
+        <input type="text" id="question" placeholder="Add Question" />
+
+        <input
+          type="text"
+          name=""
+          placeholder="Add Options"
+          id="optionsInput" />
+        <button onclick="addOptions()" id="addOptionsBtn">Add Option</button>
+        <h4 class="note">
+          Note : When you add the options click on the correct Answer an then
+          submit
+        </h4>
+        <ol id="options-parent"></ol>
+
+        <p id="correctAns">Correct Answer</p>
+
+        <button onclick="submitQuestion()" id="submit">
+          Submit this Question
+        </button>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="./addQuiz.js"></script>
+</html>
